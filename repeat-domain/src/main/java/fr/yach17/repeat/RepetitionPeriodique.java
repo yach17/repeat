@@ -9,11 +9,23 @@ import java.time.Period;
 public class RepetitionPeriodique extends RepetitionAbstract {
     private final Period periodicite;
     public RepetitionPeriodique(Period periodicite) {
+        this("Répétition périodique :" + periodicite.toString(), periodicite);
+    }
+
+    public RepetitionPeriodique(String description, Period periodicite) {
+        super(description);
         this.periodicite = periodicite;
+
+    }
+
+    @Override
+    protected LocalDate getNextDate(LocalDate from) {
+        return from.plus(periodicite);
     }
 
     @Override
     public LocalDate getNextDate() {
-        return startDate.plus(periodicite);
+        return getNextDate(startDate);
     }
+
 }

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/repeat.iml" filepath="$PROJECT_DIR$/repeat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repeat-domain/repeat-domain.iml" filepath="$PROJECT_DIR$/repeat-domain/repeat-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/repeat-web/repeat-web.iml" filepath="$PROJECT_DIR$/repeat-web/repeat-web.iml" />
     </modules>
   </component>
 </project>

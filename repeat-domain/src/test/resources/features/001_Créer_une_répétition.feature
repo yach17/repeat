@@ -26,11 +26,11 @@ Fonctionnalité: Créer une répétition
 
 
   Plan du scénario: Créer une répétition de fin de mois en début de mois
-    Etant donné que j'ai une répétition de fin de mois <nombre> jours avant la fin du mois
+    Etant donné que j'ai une répétition de fin de mois <nombre_jours> jours avant la fin du mois
     Lorsque je définis sa date de début au "<date de départ>"
     Alors la date suivante est le "<date suivante attendue>"
   Exemples:
-    | nombre | date de départ | date suivante attendue |
-    | 5      | 01/01/2025     | 26/01/2025             |
-    | 5      | 28/01/2025     | 23/02/2025             |
-    | 0      | 28/02/2025     | 31/03/2025             |
+    | nombre_jours | date de départ | date suivante attendue |
+    | 5            | 01/01/2025     | 26/01/2025             |
+    | 5            | 28/01/2025     | 23/02/2025             |
+    | 0            | 28/02/2025     | 31/03/2025             |

@@ -8,5 +8,9 @@ import java.time.LocalDate;
 public interface Repetition {
     LocalDate getNextDate();
 
+    LocalDate getDateFollowing(LocalDate baseDate);
+
     void setStartDate(LocalDate now);
+
+     String getDescription();
 }

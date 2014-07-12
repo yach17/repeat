@@ -22,7 +22,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="repeat" />
+        <module name="repeat-domain" />
+        <module name="repeat-web" />
       </profile>
     </annotationProcessing>
   </component>

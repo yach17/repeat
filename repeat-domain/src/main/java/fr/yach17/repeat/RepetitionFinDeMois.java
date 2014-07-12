@@ -2,7 +2,6 @@ package fr.yach17.repeat;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.temporal.TemporalAdjusters;
 
 import static java.time.temporal.TemporalAdjusters.*;
 
@@ -16,6 +15,11 @@ public class RepetitionFinDeMois extends RepetitionAbstract {
     private Period nbJoursAvantFinMois;
 
     public RepetitionFinDeMois(int nbJoursAvantFinMois) {
+        this("Repetition " + nbJoursAvantFinMois + " avant la fin du mois", nbJoursAvantFinMois);
+    }
+
+    public RepetitionFinDeMois(String description, int nbJoursAvantFinMois) {
+        super(description);
         this.nbJoursAvantFinMois = Period.ofDays(nbJoursAvantFinMois);
     }
 
@@ -31,6 +35,12 @@ public class RepetitionFinDeMois extends RepetitionAbstract {
 
     @Override
     public LocalDate getNextDate(){
-        return innerStartDate.plusMonths(1).with(lastDayOfMonth()).minus(nbJoursAvantFinMois);
+        return getNextDate(innerStartDate);
     }
+
+    protected LocalDate getNextDate(LocalDate from) {
+        return from.plusMonths(1).with(lastDayOfMonth()).minus(nbJoursAvantFinMois);
+    }
+
+
 }

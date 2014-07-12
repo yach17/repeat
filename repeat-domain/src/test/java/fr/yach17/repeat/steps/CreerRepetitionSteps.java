@@ -1,6 +1,5 @@
 package fr.yach17.repeat.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.fr.Alors;
 import cucumber.api.java.fr.Etantdonné;
@@ -11,14 +10,13 @@ import fr.yach17.repeat.RepetitionPeriodique;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by SaYaQuenGa on 17/06/2014.
  */
-public class MyStepdefs {
+public class CreerRepetitionSteps {
     private Repetition repetition;
 
     @Before
@@ -60,20 +58,17 @@ public class MyStepdefs {
 
     @Lorsque("^je définis sa date de début au \"([^\"]*)\"$")
     public void je_définis_sa_date_de_début_au(String dateString) throws Throwable {
-        repetition.setStartDate(parseLocalDate(dateString));
+        repetition.setStartDate(StepsHelper.parse(dateString));
     }
 
     @Alors("^la date suivante est le \"([^\"]*)\"$")
     public void la_date_suivante_est_le(String dateExpected) throws Throwable {
-        assertThat(repetition.getNextDate()).isEqualTo(parseLocalDate(dateExpected));
-    }
-
-    private static LocalDate parseLocalDate(String dateString) {
-        return LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        assertThat(repetition.getNextDate()).isEqualTo(StepsHelper.parse(dateExpected));
     }
 
     @Etantdonné("^que j'ai une répétition de fin de mois (\\d+) jours avant la fin du mois$")
     public void que_j_ai_une_répétition_de_fin_de_mois_jours_avant_la_fin_du_mois(int nbJoursAvantFinDuMois) throws Throwable {
         repetition = new RepetitionFinDeMois(nbJoursAvantFinDuMois);
     }
+
 }
