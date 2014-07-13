@@ -1,3 +1,5 @@
+FIXME : traduire en anglais
+
 Repeat
 ======
 Application simple dont le but est de permettre le suivi des tâches récurrentes comme l'entretien des voitures, la paye de la nourrice ou autres actions récurrentes.

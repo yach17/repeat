@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Created by SaYaQuenGa on 27/06/2014.
  */
-public class Utilisateur {
+public class User {
     String nom;
     String prenom;
     List<Repetition> repetitions;
@@ -31,7 +31,7 @@ public class Utilisateur {
 
     }
 
-    public List<Repetition> listerRepetitionsParDate(LocalDate dateDuJour) {
+    public List<Repetition> getRepetitionsByDate(LocalDate dateDuJour) {
         Objects.requireNonNull(dateDuJour);
         ArrayList<Repetition> repetitionsParDate = new ArrayList<>(repetitions);
         repetitionsParDate.sort((r1, r2) -> r1.getDateFollowing(dateDuJour).compareTo(r2.getDateFollowing(dateDuJour)));

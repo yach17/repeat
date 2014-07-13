@@ -1,12 +1,12 @@
 package fr.yach17.repeat.steps;
 
 import cucumber.api.java.Before;
-import cucumber.api.java.fr.Alors;
-import cucumber.api.java.fr.Etantdonné;
-import cucumber.api.java.fr.Lorsque;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import fr.yach17.repeat.EndOfMonthRepetition;
+import fr.yach17.repeat.PeriodicRepetition;
 import fr.yach17.repeat.Repetition;
-import fr.yach17.repeat.RepetitionFinDeMois;
-import fr.yach17.repeat.RepetitionPeriodique;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -24,51 +24,51 @@ public class CreerRepetitionSteps {
         repetition = null;
     }
 
-    @Etantdonné("^que j'ai une répétition annuelle$")
+    @Given("^I have a yearly repetition$")
     public void que_j_ai_une_répétition_annuelle() throws Throwable {
-        repetition = new RepetitionPeriodique(Period.ofYears(1));
+        repetition = new PeriodicRepetition(Period.ofYears(1));
     }
 
-    @Lorsque("^je définis sa date de début à aujourd'hui$")
+    @When("^I set the start date to today$")
     public void je_définis_sa_date_de_début_à_aujourd_hui() throws Throwable {
         repetition.setStartDate(LocalDate.now());
     }
 
-    @Alors("^la date suivante est l'an prochain$")
+    @Then("^the next date is next year$")
     public void la_date_suivante_est_l_an_prochain() throws Throwable {
         assertThat(repetition.getNextDate()).isEqualTo(LocalDate.now().plusYears(1));
 
     }
 
-    @Etantdonné("^que j'ai une répétition mensuelle$")
+    @Given("^I have a monthly repetition$")
     public void que_j_ai_une_répétition_mensuelle() throws Throwable {
-        repetition = new RepetitionPeriodique(Period.ofMonths(1));
+        repetition = new PeriodicRepetition(Period.ofMonths(1));
     }
 
-    @Alors("^la date suivante est le mois prochain$")
+    @Then("^the next date is next month$")
     public void la_date_suivante_est_le_mois_prochain() throws Throwable {
         assertThat(repetition.getNextDate()).isEqualTo(LocalDate.now().plusMonths(1));
     }
 
-    @Etantdonné("^que j'ai une répétition de période (\\d+) jours$")
-    public void que_j_ai_une_répétition_de_période_jours(int nbJours) throws Throwable {
-        repetition = new RepetitionPeriodique(Period.ofDays(nbJours));
+    @Given("^I have a repetition with a period of (\\d+) days$")
+    public void que_j_ai_une_répétition_de_période_days(int nbJours) throws Throwable {
+        repetition = new PeriodicRepetition(Period.ofDays(nbJours));
     }
 
 
-    @Lorsque("^je définis sa date de début au \"([^\"]*)\"$")
+    @When("^I set the start date to \"([^\"]*)\"$")
     public void je_définis_sa_date_de_début_au(String dateString) throws Throwable {
         repetition.setStartDate(StepsHelper.parse(dateString));
     }
 
-    @Alors("^la date suivante est le \"([^\"]*)\"$")
+    @Then("^the next date is \"([^\"]*)\"$")
     public void la_date_suivante_est_le(String dateExpected) throws Throwable {
         assertThat(repetition.getNextDate()).isEqualTo(StepsHelper.parse(dateExpected));
     }
 
-    @Etantdonné("^que j'ai une répétition de fin de mois (\\d+) jours avant la fin du mois$")
+    @Given("^I have an end of month repetition (\\d+) days before the end of the month$")
     public void que_j_ai_une_répétition_de_fin_de_mois_jours_avant_la_fin_du_mois(int nbJoursAvantFinDuMois) throws Throwable {
-        repetition = new RepetitionFinDeMois(nbJoursAvantFinDuMois);
+        repetition = new EndOfMonthRepetition(nbJoursAvantFinDuMois);
     }
 
 }
