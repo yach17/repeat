@@ -1,17 +1,25 @@
-package fr.yach17.repeat;
+package fr.yach17.repeat.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Created by SaYaQuenGa on 17/06/2014.
  */
-public abstract class RepetitionAbstract implements Repetition {
+public abstract class RepetitionAbstract implements Repetition{
 
-    protected String description;
+    private UUID identifier;
+
+
+    private String description;
     protected LocalDate startDate;
 
-    protected RepetitionAbstract(String description) {
+    public RepetitionAbstract(){
+
+    }
+
+    public RepetitionAbstract(String description) {
         this.description = description;
     }
 
@@ -38,5 +46,9 @@ public abstract class RepetitionAbstract implements Repetition {
             occurrence = getNextDate(occurrence);
         }
         return occurrence;
+    }
+
+    public UUID getIdentifier() {
+        return identifier;
     }
 }

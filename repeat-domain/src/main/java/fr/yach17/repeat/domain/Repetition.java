@@ -1,4 +1,4 @@
-package fr.yach17.repeat;
+package fr.yach17.repeat.domain;
 
 import java.time.LocalDate;
 

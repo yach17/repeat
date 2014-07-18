@@ -1,9 +1,10 @@
-package fr.yach17.repeat;
+package fr.yach17.repeat.domain;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-import static java.time.temporal.TemporalAdjusters.*;
+import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
+import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 
 /**
  * Created by SaYaQuenGa on 17/06/2014.
