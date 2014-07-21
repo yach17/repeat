@@ -1,4 +1,4 @@
-?? .gitignore
-?? .idea/workspace.xml
-?? repeat-domain/target/
-?? target/
+.gitignore
+.idea/workspace.xml
+repeat-domain/target/
+target/
