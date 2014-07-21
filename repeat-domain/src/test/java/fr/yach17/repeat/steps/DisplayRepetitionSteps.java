@@ -10,6 +10,8 @@ import fr.yach17.repeat.domain.PeriodicRepetition;
 import fr.yach17.repeat.domain.Repetition;
 import fr.yach17.repeat.domain.User;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
@@ -21,14 +23,18 @@ import static java.lang.Integer.parseInt;
 /**
  * Created by SaYaQuenGa on 26/06/2014.
  */
+@Singleton
 public class DisplayRepetitionSteps {
     private LocalDate today;
     private User user;
     private List<Repetition> repetitionsSortedByDate;
+    @Inject
+    StepsContext context;
 
     @Given("^I am a user$")
     public void createUser() throws Throwable {
         user = new User();
+        context.put("user", user);
     }
 
     @And("^I create the following periodic repetitions$")

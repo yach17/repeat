@@ -8,6 +8,7 @@ import fr.yach17.repeat.domain.EndOfMonthRepetition;
 import fr.yach17.repeat.domain.PeriodicRepetition;
 import fr.yach17.repeat.domain.Repetition;
 
+import javax.inject.Singleton;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -16,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Created by SaYaQuenGa on 17/06/2014.
  */
+@Singleton
 public class CreerRepetitionSteps {
     private Repetition repetition;
 
